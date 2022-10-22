@@ -75,3 +75,8 @@ tags
 
 # Ignore code-workspaces
 *.code-workspace
+
+.buildozer
+__pycache__
+bin
+buildozer.spec
