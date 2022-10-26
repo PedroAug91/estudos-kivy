@@ -1,0 +1,171 @@
+MDScreenManager:
+    
+    MDScreen:
+        name: "initial"
+        md_bg_color: 218/255, 187/255, 159/255, 1
+        MDHeroFrom:
+            id: hero_from
+            tag: "hero"
+            size_hint: None, None
+            size: "200dp", "200dp"
+            pos_hint: {"center_x": .5, "center_y": .66}
+            FitImage:
+                source: "images/logo.png"
+                size_hint: None, None
+                size: hero_from.size
+
+        MDFloatLayout:
+            MDFillRoundFlatButton:
+                text: "SOBRE"
+                font_style: "Button"
+                md_bg_color: 100/255, 37/255, 9/255, 1
+                size_hint: .6, .09
+                pos_hint: {"center_x": .5, "center_y":.28}
+                on_release:
+                    root.current_heroes = ["hero"]
+                    root.current = "about"
+                    root.transition.direction = "left"
+
+            MDFillRoundFlatButton:
+                text: "COMEÇAR AGORA"
+                font_style: "Button"
+                md_bg_color: 100/255, 37/255, 9/255, 1
+                size_hint: .6, .09
+                pos_hint: {"center_x": .5, "center_y":.4}
+                on_release:
+                    app.root.current_heroes = ["hero"]
+                    app.root.current = "login"
+                    app.root.transition.direction = "left"
+
+    MDScreen:
+        name: "about"
+        hero_to: hero_to_about
+        md_bg_color: 218/255, 187/255, 159/255, 1
+        MDHeroTo:
+            id: hero_to_about
+            tag: "hero"
+            size_hint: None, None
+            size: "220dp", "220dp"
+            pos_hint: {"center_x": .5, "center_y": .85}
+
+        MDFloatLayout:
+            Label:
+                text: "SOBRE SOBRE SOBRE SOBRE\nSOBRE SOBRE SOBRE SOBRE\nSOBRE SOBRE SOBRE SOBRE\nSOBRE SOBRE SOBRE SOBRE\n"
+                MDIconButton:
+                    icon: "chevron-left"
+                    icon_size: "43sp"
+                    theme_icon_color: "Custom"
+                    icon_color: 156/255, 93/255, 65/255, 1
+                    pos_hint: {"center_x": .15, "center_y": .09} 
+                    on_release:
+                        app.root.current = "initial"
+                        app.root.transition.direction = "right"
+                        app.root.current_heroes = ["hero"]
+
+    MDScreen:
+        name: "login"
+        hero_to: hero_to_login
+        md_bg_color: 218/255, 187/255, 159/255, 1
+        MDHeroTo:
+            id: hero_to_login
+            tag: "hero"
+            size_hint: None, None
+            size: "220dp", "220dp"
+            pos_hint: {"center_x": .5, "center_y": .85}
+        
+        MDFloatLayout:
+            MDFloatLayout:
+                size_hint: .79, .08
+                pos_hint: {"center_x": .5, "center_y": .62}   
+
+                MDLabel:
+                    text:"Nome: "
+                    font_size: "12sp"
+                    font_name: "fonts/Poppins-SemiBold.ttf"
+                    pos_hint: {"center_x": .5, "center_y": .9} 
+
+                TextInput:
+                    id: nome
+                    size_hint_y: .75
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    pos_hint: {"center_x": .49, "center_y": .43} 
+                    background_color: 0, 0, 0, 0    
+                    cursor_color: 0, 0, 0, 1
+                    cursor_width: "2sp"
+                    foreground_color: 255/255, 255/255, 255/255, 1
+                    font_size: "16sp"
+                    multiline: False
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": 0.2}
+                    md_bg_color: 0/255, 0/255, 0/255, 1
+                    size_hint_y: .02    
+
+            MDFloatLayout:
+                size_hint: .79, .08
+                pos_hint: {"center_x": .5, "center_y": .52}
+
+                MDLabel:
+                    text: "Email: "
+                    font_size: "12sp"
+                    font_name: "fonts/Poppins-SemiBold.ttf"
+                    pos_hint: {"center_x": .5, "center_y": .9}
+
+                TextInput:
+                    id: email
+                    size_hint_y: .75
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    pos_hint: {"center_x": .49, "center_y": .43}
+                    background_color: 0, 0, 0, 0
+                    cursor_color: 0, 0, 0, 1
+                    cursor_width: "2sp"
+                    foreground_color: 255/255, 255/255, 255/255, 1
+                    font_size: "16sp"
+                    multiline: False
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": 0.2}
+                    md_bg_color: 0/255, 0/255, 0/255, 1
+                    size_hint_y: .02
+
+
+            MDFloatLayout:
+                size_hint: .79, .08
+                pos_hint: {"center_x": .5, "center_y": .42}   
+
+                MDLabel:
+                    text:"Senha: "
+                    font_size: "12sp"
+                    font_name: "fonts/Poppins-SemiBold.ttf"
+                    pos_hint: {"center_x": .5, "center_y": .9} 
+
+                TextInput:
+                    id: senha
+                    size_hint_y: .75
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    pos_hint: {"center_x": .49, "center_y": .43} 
+                    background_color: 0, 0, 0, 0    
+                    cursor_color: 0, 0, 0, 1
+                    cursor_width: "2sp"
+                    foreground_color: 255/255, 255/255, 255/255, 1
+                    font_size: "16sp"
+                    multiline: False
+                    password: True
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": 0.2}
+                    md_bg_color: 0/255, 0/255, 0/255, 1
+                    size_hint_y: .02    
+
+            MDFillRoundFlatButton:
+                text: "SUBMIT"
+                font_style: "Button"
+                md_bg_color: 100/255, 37/255, 9/255, 1
+                size_hint: .6, .09
+                pos_hint: {"center_x": .5, "center_y":.20}
+                on_release:
+                    app.root.current = "initial"
+                    app.root.transition.direction = "right"
+                    app.root.current_heroes = ["hero"]
+
+                

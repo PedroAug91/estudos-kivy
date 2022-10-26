@@ -79,4 +79,3 @@ tags
 .buildozer
 __pycache__
 bin
-buildozer.spec
