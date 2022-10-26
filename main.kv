@@ -66,6 +66,7 @@ MDScreenManager:
         name: "login"
         hero_to: hero_to_login
         md_bg_color: 218/255, 187/255, 159/255, 1
+
         MDHeroTo:
             id: hero_to_login
             tag: "hero"
@@ -74,88 +75,57 @@ MDScreenManager:
             pos_hint: {"center_x": .5, "center_y": .85}
         
         MDFloatLayout:
+            size_hint: 1, 1
             MDFloatLayout:
-                size_hint: .79, .08
-                pos_hint: {"center_x": .5, "center_y": .62}   
-
-                MDLabel:
-                    text:"Nome: "
-                    font_size: "12sp"
-                    font_name: "fonts/Poppins-SemiBold.ttf"
-                    pos_hint: {"center_x": .5, "center_y": .9} 
-
-                TextInput:
+                pos_hint: {"center_x": .5, "center_y": .55}
+                size_hint: .78, 1
+                MDTextField:
                     id: nome
-                    size_hint_y: .75
-                    font_name: "fonts/Poppins-Medium.ttf"
-                    pos_hint: {"center_x": .49, "center_y": .43} 
-                    background_color: 0, 0, 0, 0    
-                    cursor_color: 0, 0, 0, 1
-                    cursor_width: "2sp"
-                    foreground_color: 255/255, 255/255, 255/255, 1
-                    font_size: "16sp"
+                    size_hint: 1, None
+                    height: "30dp"
+                    font_name: "fonts/Poppins-Regular.ttf"
+                    font_size: "24sp"
+                    pos_hint: {"center_x": .5, "center_y": .56}
+                    hint_text: "Nome:"
                     multiline: False
+                    line_color_normal: "black"
+                    line_color_focus: "maroon"
+                    hint_text_color_normal: "black"
+                    hint_text_color_focus: "maroon"
+                    cursor_width: "2sp"
 
-                MDFloatLayout:
-                    pos_hint: {"center_x": .5, "center_y": 0.2}
-                    md_bg_color: 0/255, 0/255, 0/255, 1
-                    size_hint_y: .02    
-
-            MDFloatLayout:
-                size_hint: .79, .08
-                pos_hint: {"center_x": .5, "center_y": .52}
-
-                MDLabel:
-                    text: "Email: "
-                    font_size: "12sp"
-                    font_name: "fonts/Poppins-SemiBold.ttf"
-                    pos_hint: {"center_x": .5, "center_y": .9}
-
-                TextInput:
+                MDTextField:
                     id: email
-                    size_hint_y: .75
-                    font_name: "fonts/Poppins-Medium.ttf"
-                    pos_hint: {"center_x": .49, "center_y": .43}
-                    background_color: 0, 0, 0, 0
-                    cursor_color: 0, 0, 0, 1
-                    cursor_width: "2sp"
-                    foreground_color: 255/255, 255/255, 255/255, 1
-                    font_size: "16sp"
+                    size_hint: 1, None
+                    height: "30dp"
+                    font_name: "fonts/Poppins-Regular.ttf"
+                    font_size: "24sp"
+                    pos_hint: {"center_x": .5, "center_y": .44}
+                    hint_text: "Email:"
                     multiline: False
+                    line_color_normal: "black"
+                    line_color_focus: "maroon"
+                    hint_text_color_normal: "black"
+                    hint_text_color_focus: "maroon"
+                    cursor_width: "2sp"
 
-                MDFloatLayout:
-                    pos_hint: {"center_x": .5, "center_y": 0.2}
-                    md_bg_color: 0/255, 0/255, 0/255, 1
-                    size_hint_y: .02
-
-
-            MDFloatLayout:
-                size_hint: .79, .08
-                pos_hint: {"center_x": .5, "center_y": .42}   
-
-                MDLabel:
-                    text:"Senha: "
-                    font_size: "12sp"
-                    font_name: "fonts/Poppins-SemiBold.ttf"
-                    pos_hint: {"center_x": .5, "center_y": .9} 
-
-                TextInput:
+                MDTextField:
                     id: senha
-                    size_hint_y: .75
-                    font_name: "fonts/Poppins-Medium.ttf"
-                    pos_hint: {"center_x": .49, "center_y": .43} 
-                    background_color: 0, 0, 0, 0    
-                    cursor_color: 0, 0, 0, 1
-                    cursor_width: "2sp"
-                    foreground_color: 255/255, 255/255, 255/255, 1
-                    font_size: "16sp"
+                    size_hint: 1, None
+                    height: "30dp"
+                    font_name: "fonts/Poppins-Regular.ttf"
+                    font_size: "20sp"
+                    pos_hint: {"center_x": .5, "center_y": .32}
+                    hint_text: "Senha:"
                     multiline: False
+                    line_color_normal: "black"
+                    line_color_focus: "maroon"
+                    hint_text_color_normal: "black"
+                    hint_text_color_focus: "maroon"
+                    cursor_width: "2sp"
                     password: True
 
-                MDFloatLayout:
-                    pos_hint: {"center_x": .5, "center_y": 0.2}
-                    md_bg_color: 0/255, 0/255, 0/255, 1
-                    size_hint_y: .02    
+
 
             MDFillRoundFlatButton:
                 text: "SUBMIT"
@@ -168,4 +138,14 @@ MDScreenManager:
                     app.root.transition.direction = "right"
                     app.root.current_heroes = ["hero"]
 
-                
+        MDIconButton:
+            icon: "chevron-left"
+            icon_size: "43sp"
+            theme_icon_color: "Custom"
+            icon_color: 156/255, 93/255, 65/255, 1
+            pos_hint: {"center_x": .10, "center_y": .06} 
+            on_release:
+                app.root.current = "initial"
+                app.root.transition.direction = "right"
+                app.root.current_heroes = ["hero"]
+
